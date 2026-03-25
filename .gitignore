@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+=======
+__pycache__/
+*.pyc
+.venv/
+shortcuts.json
+shortcuts.tmp
+>>>>>>> 177918d6b63422176b0c27a9633483816fa13d86
