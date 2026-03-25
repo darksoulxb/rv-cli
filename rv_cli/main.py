@@ -1,7 +1,8 @@
 from typing import List
 import subprocess as sp
 import typer
-from rv.storage import load_commands,save_commands
+from rv_cli.storage import load_commands, save_commands
+
 app = typer.Typer(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
 
 '''ADD NEW COMMANDS/SHORTCUTS'''
@@ -76,7 +77,7 @@ def list():
 """REMOVES A COMMAND"""
 
 @app.command()
-def remove(name:str):
+def remove(name: str):
     # Prevent removal of reserved commands
     if name in RESERVED:
         typer.echo(f"'{name}' is a reserved command and cannot be removed.")
@@ -147,6 +148,7 @@ def rename(old: str, new: str):
     data[new] = data.pop(old)
     save_commands(data)
     typer.echo(f"renamed: [{old}] --> [{new}]")
+
 """RUNS COMMANDS"""
 # @app.command()
 # def run(name:str):
@@ -200,9 +202,6 @@ def main(ctx: typer.Context):
             run(ctx.args[0])
         else:
             typer.echo(ctx.get_help())
-
-
-
 
 
 if __name__ == "__main__":
