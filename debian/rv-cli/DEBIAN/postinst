@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+echo "[rv-cli] Installing Python dependencies..."
+pip3 install --quiet typer>=0.12 platformdirs>=0.4 2>/dev/null || \
+    pip3 install --quiet --break-system-packages typer platformdirs 2>/dev/null || true
+
+echo "[rv-cli] Making rv executable..."
+chmod +x /usr/bin/rv
+
+echo "[rv-cli] Install complete. Run: rv --help"

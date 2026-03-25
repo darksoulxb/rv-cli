@@ -1,0 +1,14 @@
+Package: rv-cli
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.10), python3-pip
+Recommends: python3-typer, python3-platformdirs
+Maintainer: darksoulxb <https://github.com/darksoulxb>
+Homepage: https://github.com/darksoulxb/rv-cli
+Description: A fast, no-bs command-line shortcut manager
+ rv-cli lets you save long shell commands under short memorable names
+ and execute them instantly. Supports sequential and single-join
+ execution modes. Data is stored locally as JSON with atomic writes
+ to prevent corruption.

@@ -1,0 +1,26 @@
+pkgbase = rv-cli-git
+	pkgdesc = A fast, no-bs command-line shortcut manager for the terminal (git)
+	pkgver = 0.1.0.r0.ga1c5d9c
+	pkgrel = 1
+	url = https://github.com/darksoulxb/rv-cli
+	arch = any
+	license = MIT
+	makedepends = git
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-wheel
+	makedepends = python-setuptools
+	depends = python
+	depends = python-typer
+	depends = python-platformdirs
+	depends = python-rich
+	depends = python-click
+	optdepends = bash: bash shell support
+	optdepends = zsh: zsh shell support
+	optdepends = fish: fish shell support
+	provides = rv-cli=0.1.0.r0.ga1c5d9c
+	conflicts = rv-cli
+	source = rv-cli-git::git+https://github.com/darksoulxb/rv-cli.git#branch=main
+	b2sums = SKIP
+
+pkgname = rv-cli-git
