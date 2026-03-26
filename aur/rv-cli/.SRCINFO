@@ -1,6 +1,6 @@
 pkgbase = rv-cli
 	pkgdesc = A fast, no-bs command-line shortcut manager for the terminal
-	pkgver = 0.1.0
+	pkgver = 0.1.3
 	pkgrel = 1
 	url = https://github.com/darksoulxb/rv-cli
 	arch = any
@@ -9,7 +9,7 @@ pkgbase = rv-cli
 	makedepends = python-installer
 	makedepends = python-wheel
 	makedepends = python-setuptools
-	depends = python
+	depends = python>=3.10
 	depends = python-typer
 	depends = python-platformdirs
 	depends = python-rich
@@ -17,7 +17,7 @@ pkgbase = rv-cli
 	optdepends = bash: bash shell support
 	optdepends = zsh: zsh shell support
 	optdepends = fish: fish shell support
-	source = rv-cli-0.1.0.tar.gz::https://github.com/darksoulxb/rv-cli/archive/refs/tags/v0.1.0.tar.gz
-	b2sums = SKIP
+	source = rv-cli-0.1.3.tar.gz::https://github.com/darksoulxb/rv-cli/archive/refs/tags/v0.1.3.tar.gz
+	b2sums = 6e92ea260ceada604e935a5b9040334eafae984a773cdbe15a41dbb6686bad547ca0268aec0a6b92bc118f734e11f2c02a91e05c5644e194d291f01adb20d07a
 
 pkgname = rv-cli
