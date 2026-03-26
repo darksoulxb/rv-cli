@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-    { name = "darksoulxb", url = "https://github.com/darksoulxb" }
+    { name = "darksoulxb" }
 ]
 keywords = ["cli", "shortcuts", "terminal", "commands", "productivity"]
 classifiers = [
