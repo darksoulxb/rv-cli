@@ -166,7 +166,7 @@ def rename(old: str, new: str):
 """RUNS COMMANDS CONSIDERING EXTRA OPTIONS"""
 
 @app.command()
-def run(name: str):
+def run(name: str, extra_args: List[str] = typer.Argument(None)):
     data = load_commands()
 
     if name not in data:
@@ -178,10 +178,14 @@ def run(name: str):
     mode = entry["mode"]
 
     if mode == "single":
-        cmd = " ".join(commands)
+        # Combine stored command tokens with any extra arguments
+        full_cmd_tokens = commands + (extra_args or [])
+        cmd = " ".join(full_cmd_tokens)
         typer.echo(f"running: {cmd}")
         sp.run(cmd, shell=True)
-    else:  # seqal execution
+    else:  # seq mode
+        if extra_args:
+            typer.echo("Warning: Extra arguments are ignored in seq mode.")
         for cmd in commands:
             typer.echo(f"running: {cmd}")
             sp.run(cmd, shell=True)
@@ -199,7 +203,8 @@ RESERVED = {cmd.name or cmd.callback.__name__ for cmd in app.registered_commands
 def main(ctx: typer.Context):
     if ctx.invoked_subcommand is None:
         if ctx.args:
-            run(ctx.args[0])
+            # First arg is the shortcut name, the rest are extra arguments
+            run(ctx.args[0], ctx.args[1:])
         else:
             typer.echo(ctx.get_help())
 
