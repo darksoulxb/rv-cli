@@ -1,6 +1,6 @@
 pkgbase = rv-cli
 	pkgdesc = A fast, no-bs command-line shortcut manager for the terminal
-	pkgver = 0.1.4
+	pkgver = 0.1.5
 	pkgrel = 1
 	url = https://github.com/darksoulxb/rv-cli
 	arch = any
@@ -17,7 +17,7 @@ pkgbase = rv-cli
 	optdepends = bash: bash shell support
 	optdepends = zsh: zsh shell support
 	optdepends = fish: fish shell support
-	source = rv-cli-0.1.4.tar.gz::https://github.com/darksoulxb/rv-cli/archive/refs/tags/v0.1.4.tar.gz
-	b2sums = efe177a0ad7927aeee2831adbc4bd8faa6512d00bad5e060b63a9d6ca297ded758d0b8f97dc216509f3208e416bf40f66145527fa9a35f43ed5219e6577b43c9
+	source = rv-cli-0.1.5.tar.gz::https://github.com/darksoulxb/rv-cli/archive/refs/tags/v0.1.5.tar.gz
+	b2sums = 75f4918a4f439c1f9391d7ea542267e8aa4a4bb3839d4e3a3637372dc975e115f3a715802d17c293a8bbaf0f123bc7ba317fd174ee72d59cec494150f95617c2
 
 pkgname = rv-cli
