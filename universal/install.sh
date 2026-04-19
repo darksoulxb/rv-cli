@@ -127,12 +127,30 @@ fix_path() {
     USER_BIN="$HOME/.local/bin"
     if ! command -v rv &>/dev/null; then
         if [ -f "$USER_BIN/rv" ]; then
-            warn "'rv' not in PATH. Add this to your shell config:"
+            # 1. Detect the user's default shell
+            SHELL_NAME=$(basename "$SHELL")
+            case "$SHELL_NAME" in
+                zsh)  RC_FILE="$HOME/.zshrc" ;;
+                bash) RC_FILE="$HOME/.bashrc" ;;
+                *)    RC_FILE="$HOME/.profile" ;; # Fallback
+            esac
+
+            # 2. Check if the PATH is already in the file to avoid duplicates
+            if grep -q "$USER_BIN" "$RC_FILE" 2>/dev/null; then
+                warn "'rv' is in $USER_BIN, but not active in this session."
+            else
+                # 3. Safely append it
+                warn "Updating $RC_FILE to include $USER_BIN in PATH..."
+                echo "" >> "$RC_FILE"
+                echo '# Added by rv-cli installer' >> "$RC_FILE"
+                echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$RC_FILE"
+                log "Added $USER_BIN to PATH in $RC_FILE."
+            fi
+
+            # 4. Prompt the user to source it themselves
             echo ""
-            echo "  # ~/.bashrc or ~/.zshrc or ~/.config/fish/config.fish"
-            echo "  export PATH=\"\$HOME/.local/bin:\$PATH\""
-            echo ""
-            warn "Then run: source ~/.bashrc  (or restart terminal)"
+            warn "To use 'rv' immediately, run the following command or restart your terminal:"
+            echo -e "  ${CYAN}source $RC_FILE${RESET}"
         fi
     fi
 }
